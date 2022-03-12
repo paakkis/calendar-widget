@@ -43,22 +43,27 @@ export default function EventMapper(props) {
   //tulostetaan tapahtumat kuukausittain
   const getEventsMonthly = (data, month) => {
     return (
+      
       <div key={month} className="card-container">
-
+        <h2 className="heading-month">{month_dict[month]}</h2>
         {data.map((element) => {
           let event = element.events[0]
           return (
-            <Event
-              key={event.id}
-              title={event.summary}
-              desc={event.description}
-              date={event.start.dateTime}
-              endingDate={event.end.dateTime}
-              location={event.location}
-              url={event.htmlLink}
-            />
+            <div key={Event} className="event">
+              <Event
+                key={event.id}
+                title={event.summary}
+                desc={event.description}
+                date={event.start.dateTime}
+                endingDate={event.end.dateTime}
+                location={event.location}
+                url={event.htmlLink}
+                attachment={event.attachment}
+              />
+            </div>
           )
         })}
+        
       </div>
     )
   }
