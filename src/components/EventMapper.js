@@ -24,6 +24,7 @@ export default function EventMapper(props) {
   //group events by month
   const groupEvents = () => {
     const events = props.events.items.map((event) => {
+      
       //ISO-stringi -> Date-objektiksi
       let date = new Date(event.start.dateTime)
 
@@ -37,32 +38,37 @@ export default function EventMapper(props) {
     //groupataan tapahtumat kuukausittain
     return _.groupBy(events, 'month')
   }
-
   const event_data = groupEvents()
 
   //tulostetaan tapahtumat kuukausittain
   const getEventsMonthly = (data, month) => {
+    
     return (
+      
       <div key={month} className="card-container">
-
+        <h2 className="heading-month">{month_dict[month]}</h2>
         {data.map((element) => {
           let event = element.events[0]
+          let arr = Object.entries(event)
+          console.log(arr)
           return (
-            <Event
-              key={event.id}
-              title={event.summary}
-              desc={event.description}
-              date={event.start.dateTime}
-              endingDate={event.end.dateTime}
-              location={event.location}
-              url={event.htmlLink}
-            />
+            <div key={Event} className="event">
+              <Event
+                key={event.id}
+                title={event.summary}
+                desc={event.description}
+                date={event.start.dateTime}
+                endingDate={event.end.dateTime}
+                location={event.location}
+                url={event.htmlLink}
+                attachment={arr[15][1][0].fileId}
+              />
+            </div>
           )
         })}
       </div>
     )
   }
-
   return (
     <>
       {_.map(event_data, (data, month) => {

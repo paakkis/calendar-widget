@@ -18,7 +18,7 @@ function App() {
               className="App-link"
               href="https://github.com/skriptiry/calendar-widget"
             >
-              tapahtumakalenteri v. 0.1
+              tapahtumakalenteri v. 0.2
             </a>
           </div>
         </div>

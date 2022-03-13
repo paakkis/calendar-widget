@@ -1,16 +1,14 @@
-@import url('https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700');
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|Quicksand:300,400,500,700');
+@import url("https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700");
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|Quicksand:300,400,500,700");
 
 $blue: rgba(0, 124, 173, 0.616);
-
 $darkblue: rgb(0, 68, 95);
-$purple: #A40E4C;
+$purple: #a40e4c;
 $yellow: #e7984e;
-$green: #87BAAB;
+$green: #87baab;
 $green2: #87baabbe;
-$darkgreen: #87BAAB;
+$darkgreen: #29745d;
 $pink: #e0a2c3;
-
 
 @mixin object($w, $h, $bg) {
   width: $w;
@@ -19,36 +17,48 @@ $pink: #e0a2c3;
 }
 
 .event_container {
+  @include object(90%, auto, $darkblue);
+  align-items: flex-end;
   display: flex;
-  @include object(95%, 95%, $yellow);
-  background-image: url('https://www.pellicaanonline.com.au/wp-content/uploads/2020/12/44a.jpeg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-position-y: 60px;
+  position: relative;
+  overflow: hidden;
   border-top-left-radius: 1em;
   border-bottom-left-radius: 1em;
-  border-radius: 2px;
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .25), 0 8px 8px 0 rgba(0, 0, 0, .15);
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.25), 0 8px 8px 0 rgba(0, 0, 0, 0.15);
   margin: 20px 0;
-  max-width: 750px;
+  margin-left: 20px;
+  min-width: 500px;
+  max-width: 500px;
+  min-height: 300px;
+  max-height: 500px;
+  margin-right: 20px;
   border-radius: 1em;
-  border-right: 0.5em solid $blue;
+  border-right: 0.5em solid $darkblue;
 
-  /*
   .event_bg {
-    @include object(40%, 100%, #333);
-    background-image: url('https://www.pellicaanonline.com.au/wp-content/uploads/2020/12/44a.jpeg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    border-top-left-radius: 1em;
-    border-bottom-left-radius: 1em;
-  }*/
+    object-fit: fill;
+    transition: opacity 0.5s ease-in;
+    @include object(auto, auto, null);
+    opacity: 100%;
+    width: 100%;
+    max-height: 100%;
+    max-width: 100%;
+    margin: auto;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+  }
+
+  .event_bg:hover {
+    opacity: 5%;
+    transition: opacity 0.5s ease-in;
+  }
 
   .event_info {
     //width: 60%;
-    width: 100%;
     padding: 10px 20px;
     display: inline-block;
     text-align: left;
@@ -61,15 +71,16 @@ $pink: #e0a2c3;
 
       h4 {
         font-size: 26px;
-        color:#3d3d3c;
-        font-family: 'Quicksand', sans-serif;
+        color: whitesmoke;
+        text-shadow: 1px 1px #000000;
+        font-family: "Quicksand", sans-serif;
       }
     }
 
     .event_location {
       margin-bottom: 2em;
 
-      span.location>h5 {
+      span.location > h5 {
         margin: 0;
         margin-right: 1em;
         max-width: 70%;
@@ -83,13 +94,13 @@ $pink: #e0a2c3;
         white-space: nowrap;
       }
 
-      span.date>h5 {
+      span.date > h5 {
         margin: 0;
         margin-right: 1em;
         max-width: 100%;
         display: inline-block;
         background-color: $green;
-        color: white;
+        color: rgb(255, 255, 255);
         border-radius: 2em;
         padding: 0.25em 1em 0.25em 1em;
         overflow: hidden;
@@ -97,7 +108,7 @@ $pink: #e0a2c3;
         white-space: nowrap;
       }
 
-      span.duration>h5 {
+      span.duration > h5 {
         margin: 0;
         max-width: 100%;
         display: inline-block;
@@ -110,7 +121,7 @@ $pink: #e0a2c3;
         white-space: nowrap;
       }
 
-      span.day>h5 {
+      span.day > h5 {
         margin: 0;
         margin-right: 1em;
         max-width: 100%;
@@ -123,7 +134,6 @@ $pink: #e0a2c3;
         text-overflow: ellipsis;
         white-space: nowrap;
       }
-
     }
 
     .event_desc {
@@ -154,9 +164,10 @@ $pink: #e0a2c3;
       .event_sign {
         display: flex;
         @include object(auto, 100%, null);
+        position: relative;
         align-items: center;
         margin-left: auto;
-        margin-right: 0;
+        margin-right: auto;
 
         a.btn_sign {
           display: flex;
@@ -170,7 +181,7 @@ $pink: #e0a2c3;
           font-weight: 600;
           border-radius: 2em;
           will-change: background;
-          transition: background .3s, color .2s ease-in;
+          transition: background 0.3s, color 0.2s ease-in;
           cursor: pointer;
 
           i.material-icons {
@@ -181,7 +192,7 @@ $pink: #e0a2c3;
 
           &:hover {
             background: $darkgreen;
-            color: #FFF;
+            color: #fff;
           }
         }
       }
@@ -190,7 +201,8 @@ $pink: #e0a2c3;
         display: flex;
         @include object(auto, 100%, null);
         align-items: center;
-        margin-left: auto;
+        position: absolute;
+        margin-left: 65;
         margin-right: 0;
 
         a.btn_more {
@@ -205,7 +217,7 @@ $pink: #e0a2c3;
           font-weight: 600;
           border-radius: 2em;
           will-change: background;
-          transition: background .3s, color .2s ease-in;
+          transition: background 0.3s, color 0.2s ease-in;
           cursor: pointer;
 
           i.material-icons {
@@ -216,7 +228,7 @@ $pink: #e0a2c3;
 
           &:hover {
             background: $darkblue;
-            color: #FFF;
+            color: #fff;
           }
         }
       }
@@ -227,26 +239,51 @@ $pink: #e0a2c3;
 // mobile screen
 @media screen and (max-width: 575px) {
   .event_container {
-    @include object(95%, auto, #FFF);
-    flex-direction: column;
-    border-right: none;
-    border-bottom: 0.5em solid $blue;
+    @include object(40%, auto, $darkblue);
+    display: flex;
+    position: relative;
+    overflow: hidden;
+    border-top-left-radius: 1em;
+    border-bottom-left-radius: 1em;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.25), 0 8px 8px 0 rgba(0, 0, 0, 0.15);
+    margin: 20px 0;
+    margin-left: 20px;
+    min-width: 450px;
+    max-width: 450px;
+    min-height: 300px;
+    max-height: 300px;
+    margin-right: 20px;
+    border-radius: 1em;
+    border-right: 0.5em solid $blue;
 
-    
     .event_bg {
-      @include object(100%, auto, null);
-      min-height: 250px;
-      border-top-right-radius: 1em;
-      border-bottom-left-radius: 0;
+      object-fit: fill;
+      transition: opacity 0.5s ease-in;
+      @include object(auto, auto, null);
+      opacity: 100%;
+      width: 100%;
+      max-height: 100%;
+      max-width: 100%;
+      margin: auto;
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+    }
+    .event_bg:hover {
+      opacity: 5%;
+      transition: opacity 0.5s ease-in;
     }
 
     .event_info {
-      width: auto;
+      width: 100%;
 
       .event_title h4 {
         margin-bottom: 2em;
         font-size: 20px;
-        font-family: 'Quicksand', sans-serif;
+        font-family: "Quicksand", sans-serif;
       }
     }
   }
