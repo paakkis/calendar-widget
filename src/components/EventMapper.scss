@@ -1,16 +1,15 @@
-<<<<<<< HEAD
 .card-container {
+  display: grid;
   min-width: 100%;
   width: 100%;
   max-width: 100%;
-  display: grid;
   grid-template-columns: auto auto auto;
   position: relative;
   padding: 0;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: 30px;
+  margin-top: 20px;
 
   h2 {
     text-transform: uppercase;
@@ -26,7 +25,7 @@
     align-items: center;
     justify-content: center;
     left: 0;
-    margin-top: 0;
+    margin-top: -18%;
   }
 }
 
@@ -47,53 +46,3 @@
     }
   }
 }
-=======
-.card-container {
-  min-width: 100%;
-  width: 100%;
-  max-width: 100%;
-  display: grid;
-  grid-template-columns: auto auto auto;
-  position: relative;
-  padding: 0;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin-top: 30px;
-
-  h2 {
-    text-transform: uppercase;
-  }
-
-  .event {
-  }
-
-  .heading-month {
-    width: 100%;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    left: 0;
-    margin-top: 0;
-  }
-}
-
-@media screen and (max-width: 575px) {
-  .card-container {
-    min-width: 100%;
-    width: 100%;
-    max-width: 100%;
-    display: grid;
-    grid-template-columns: auto;
-    padding: 2px;
-    flex-direction: column;
-    align-items: center;
-    justify-content: top;
-
-    h2 {
-      text-transform: uppercase;
-    }
-  }
-}
->>>>>>> f1820db1b55bc0ae1ae79f1c7492e85bbc1a92c4
